@@ -13,7 +13,7 @@ public class Login {
 
     public Login() {
         loginID = -1;
-
+        frequency="0";
     }
 
     public int getLoginID() {

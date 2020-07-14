@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,9 +21,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import static java.lang.Integer.parseInt;
+
 public class PasswordShowDialog extends DialogFragment {
     RecyclerView loginList;
     LoginAdapter loginAdapter;
+    Login currentLogin;
     ArrayList<Login> logins;
     LoginListActivity activity;
     View activityView;
@@ -59,7 +63,20 @@ public class PasswordShowDialog extends DialogFragment {
         websiteText.setText(logins.get(position).getWebsiteName());
         idText.setText(logins.get(position).getIdentification());
         passwordText.setText(logins.get(position).getPassword());
+        //logins.get(position).setFrequency(Integer.toString((parseInt(logins.get(position).getFrequency())+1)));
+        //Frequency++
+        currentLogin=logins.get(position);
+        currentLogin.setFrequency(Integer.toString((parseInt(currentLogin.getFrequency())+1)));
 
+        LoginDataSource ds = new LoginDataSource(activity);
+        try {
+            ds.open();
+            ds.updateLogin(currentLogin);
+            ds.close();
+        }
+        catch (Exception e) {
+
+        }
 
 
         mActionCancel.setOnClickListener( new View.OnClickListener() {

@@ -21,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
+import static java.lang.Integer.parseInt;
+
 public class MainActivity extends AppCompatActivity {//implements PasswordShowDialog.SaveDateListener {
 
     private Login currentLogin;
@@ -255,12 +257,18 @@ public class MainActivity extends AppCompatActivity {//implements PasswordShowDi
         EditText editIdentification = findViewById(R.id.identificationEdit);
         EditText editPassword = findViewById(R.id.editPassword);
         EditText editImportance = findViewById(R.id.editImportance);
+        TextView frequency = findViewById(R.id.frequency);
 
         editWebsite.setText(currentLogin.getWebsiteName());
         editIdentification.setText(currentLogin.getIdentification());
         editPassword.setText(currentLogin.getPassword());
         editImportance.setText(currentLogin.getImportance());
 
+        //currentLogin.setFrequency(Integer.toString((parseInt(currentLogin.getFrequency())+1)));
+        //ds.updateLogin(currentLogin);
+
+
+        frequency.setText(currentLogin.getFrequency());
     }
 
 /*
