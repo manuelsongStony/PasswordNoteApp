@@ -1,66 +1,91 @@
 package com.example.manuelsong_login_app;
 //Manuel Song 110116811
 //I used all the template, frame , and methods from textbook
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CalendarView;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 
 public class PasswordShowDialog extends DialogFragment {
-    /*
-    Calendar selectedDate;
+    RecyclerView loginList;
+    LoginAdapter loginAdapter;
+    ArrayList<Login> logins;
+    LoginListActivity activity;
+    View activityView;
+    private static final String TAG = "PasswordShowDialog";
+    //private EditText mInput;
+    private TextView mActionChange, mActionCancel;
+    private TextView websiteText, idText, passwordText;
 
-    public interface SaveDateListener {
-        void didFinishDatePickerDialog(Calendar selectedTime);
+
+    public PasswordShowDialog(LoginListActivity act,View view,ArrayList<Login> loginsFrom){
+        super();
+        activity=act;
+        activityView=view;
+        logins=loginsFrom;
     }
 
-    public PasswordShowDialog() {
-        // Empty constructor required for DialogFragment
-    }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                       Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.select_date, container);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view =inflater.inflate(R.layout.dialog_password_show_up, container, false);
+        mActionChange = view.findViewById(R.id.action_change);
+        mActionCancel=view.findViewById(R.id.action_cancel);
 
-        getDialog().setTitle("Select Date");
-        selectedDate = Calendar.getInstance();
+        websiteText = view.findViewById(R.id.websiteText2);
+        idText = view.findViewById(R.id.idText2);
+        passwordText = view.findViewById(R.id.passwordText2);
 
-        final CalendarView cv = view.findViewById(R.id.calendarView);
-        cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView calendarView, int year, int month, int day) {
-                 selectedDate.set(year, month, day);
-            }
-        });
 
-        Button saveButton = view.findViewById(R.id.buttonSelect);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                saveItem(selectedDate);
-            }
-        });
-        Button cancelButton = view.findViewById(R.id.buttonCancel);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+
+        RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) activityView.getTag();
+        int position = viewHolder.getAdapterPosition();
+
+        websiteText.setText(logins.get(position).getWebsiteName());
+        idText.setText(logins.get(position).getIdentification());
+        passwordText.setText(logins.get(position).getPassword());
+
+
+
+        mActionCancel.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: closing dialog");
+                getDialog().dismiss();
+            }
+        });
+
+
+        mActionChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: capturing input.");
+
+                RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) activityView.getTag();
+                int position = viewHolder.getAdapterPosition();
+                int loginId = logins.get(position).getLoginID();
+                Intent intent = new Intent(activity, MainActivity.class);
+                intent.putExtra("loginId", loginId);
+                startActivity(intent);
                 getDialog().dismiss();
             }
         });
         return view;
     }
 
-    private void saveItem(Calendar selectedTime) {
-        SaveDateListener activity = (SaveDateListener) getActivity();
-        activity.didFinishDatePickerDialog(selectedTime);
-        getDialog().dismiss();
-    }
-    */
 }
