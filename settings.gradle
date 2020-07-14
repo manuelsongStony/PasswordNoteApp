@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "ManuelSong_Password_app"
