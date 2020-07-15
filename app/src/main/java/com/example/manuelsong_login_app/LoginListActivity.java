@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -43,10 +44,34 @@ public class LoginListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_list);
 
+        initMapButton();
+        initSettingsButton();
 
         initAddLoginButton();
         initDeleteSwitch();
     }
+
+    private void initMapButton() {
+        ImageButton ibList = findViewById(R.id.imageButtonMap);
+        ibList.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginListActivity.this, LoginPasswordChecker.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+    }
+    private void initSettingsButton() {
+        ImageButton ibList = findViewById(R.id.imageButtonSettings);
+        ibList.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginListActivity.this, LoginSettingsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     @Override
     public void onResume() {

@@ -70,11 +70,11 @@
             android:text="Website" />
 
         <RadioButton
-            android:id="@+id/radioIdendification"
+            android:id="@+id/radioImportance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ID" />
+            android:text="Importance" />
 
         <RadioButton
             android:id="@+id/radioFrequency"

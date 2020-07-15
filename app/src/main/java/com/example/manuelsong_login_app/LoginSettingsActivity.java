@@ -58,13 +58,13 @@ public class LoginSettingsActivity extends AppCompatActivity {
                 Context.MODE_PRIVATE).getString("sortorder","ASC");
 
         RadioButton rbWebsite = findViewById(R.id.website);
-        RadioButton rbID = findViewById(R.id.radioIdendification);
+        RadioButton rbImportance = findViewById(R.id.radioImportance);
         RadioButton rbFrequency = findViewById(R.id.radioFrequency);
         if (sortBy.equalsIgnoreCase("website")) {
             rbWebsite.setChecked(true);
         }
-        else if (sortBy.equalsIgnoreCase("identification")) {
-            rbID.setChecked(true);
+        else if (sortBy.equalsIgnoreCase("importance")) {
+            rbImportance.setChecked(true);
         }
         else {
             rbFrequency.setChecked(true);
@@ -87,14 +87,14 @@ public class LoginSettingsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup arg0, int arg1) {
                 RadioButton rbName = findViewById(R.id.website);
-                RadioButton rbCity = findViewById(R.id.radioIdendification);
+                RadioButton rbCity = findViewById(R.id.radioImportance);
                 if (rbName.isChecked()) {
                     getSharedPreferences("MyLoginListPreferences",
                              Context.MODE_PRIVATE).edit().putString("sortfield", "website").apply();
                 }
                 else if (rbCity.isChecked()) {
                     getSharedPreferences("MyLoginListPreferences",
-                            Context.MODE_PRIVATE).edit().putString("sortfield", "identification").apply();
+                            Context.MODE_PRIVATE).edit().putString("sortfield", "importance").apply();
                 }
                 else {
                     getSharedPreferences("MyLoginListPreferences",
