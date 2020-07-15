@@ -92,12 +92,17 @@ public class MainActivity extends AppCompatActivity {//implements PasswordShowDi
         EditText idEdit = findViewById(R.id.identificationEdit);
         EditText editPassword = findViewById(R.id.editPassword);
         EditText editImportance = findViewById(R.id.editImportance);
+        Button resetBtn = findViewById(R.id.btnFrequencyReset);
+
+
         Button buttonSave = findViewById(R.id.buttonSave);
 
         websiteEdit.setEnabled(enabled);
         idEdit.setEnabled(enabled);
         editPassword.setEnabled(enabled);
         editImportance.setEnabled(enabled);
+        resetBtn.setEnabled(enabled);
+
 
         buttonSave.setEnabled(enabled);
 
@@ -182,6 +187,19 @@ public class MainActivity extends AppCompatActivity {//implements PasswordShowDi
             }
         });
 
+
+        final Button resetBtn = findViewById(R.id.btnFrequencyReset);
+        resetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                currentLogin.setFrequency("0");
+                TextView frequency = findViewById(R.id.frequency);
+                frequency.setText(currentLogin.getFrequency());
+
+
+            }
+        });
 
 
 

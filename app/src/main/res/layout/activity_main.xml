@@ -214,6 +214,16 @@
                 android:text="0"
                 app:layout_constraintStart_toEndOf="@+id/frequencyLabel"
                 app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+            <Button
+                android:id="@+id/btnFrequencyReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="reset"
+                app:layout_constraintStart_toEndOf="@+id/frequency"
+                app:layout_constraintTop_toBottomOf="@+id/editPassword" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
