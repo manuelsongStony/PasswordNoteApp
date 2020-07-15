@@ -41,17 +41,18 @@ public class LoginPasswordChecker extends AppCompatActivity {
     }
     private void initCheckerButton() {
         ImageButton ibList = findViewById(R.id.imageButtonChecker);
+        ibList.setEnabled(false);
+    }
+    private void initSettingsButton() {
+        ImageButton ibList = findViewById(R.id.imageButtonSettings);
         ibList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(LoginPasswordChecker.this, LoginPasswordChecker.class);
+                Intent intent = new Intent(LoginPasswordChecker.this, LoginSettingsActivity
+                        .class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
-    }
-    private void initSettingsButton() {
-        ImageButton ibList = findViewById(R.id.imageButtonSettings);
-        ibList.setEnabled(false);
     }
     private void initChecker() {
 
@@ -68,11 +69,11 @@ public class LoginPasswordChecker extends AppCompatActivity {
                 String s="";
                 int score= securityTest(password.getText().toString());
                 if(score>=30){
-                    s="Good for security";
+                    s="Good for security"+" (score : "+score+")";
                 }else if(score>=20){
-                    s="Normal for security";
+                    s="Normal for security"+" (score : "+score+")";
                 }else{
-                    s="Bad for security";
+                    s="Bad for security"+" (score : "+score+")";
                 }
                 result.setText(s);
             }
