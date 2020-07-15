@@ -44,15 +44,15 @@ public class LoginListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_list);
 
-        initMapButton();
+        initChekcerButton();
         initSettingsButton();
 
         initAddLoginButton();
         initDeleteSwitch();
     }
 
-    private void initMapButton() {
-        ImageButton ibList = findViewById(R.id.imageButtonMap);
+    private void initChekcerButton() {
+        ImageButton ibList = findViewById(R.id.imageButtonChecker);
         ibList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginListActivity.this, LoginPasswordChecker.class);

@@ -19,7 +19,7 @@ public class LoginSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login_settings);
     
         initListButton();
-        initMapButton();
+        initCheckerButton();
         initSettingsButton();
         initSettings();
         initSortByClick();
@@ -36,8 +36,8 @@ public class LoginSettingsActivity extends AppCompatActivity {
             }
         });
     }
-    private void initMapButton() {
-        ImageButton ibList = findViewById(R.id.imageButtonMap);
+    private void initCheckerButton() {
+        ImageButton ibList = findViewById(R.id.imageButtonChecker);
         ibList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginSettingsActivity.this, LoginPasswordChecker.class);
