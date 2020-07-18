@@ -1,14 +1,12 @@
 package com.example.manuelsong_login_app;
 //Manuel Song 110116811
 //I used all the template, frame , and methods from textbook
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,9 +57,6 @@ public class LoginPasswordChecker extends AppCompatActivity {
         final EditText password=(EditText)findViewById(R.id.passwordSEdit);
         final TextView result= (TextView)findViewById(R.id.passwordSResult);
         Button btn= (Button) findViewById(R.id.btn_checker);
-
-        //int enteredBill= Integer.parseInt(bill.getText().toString());
-        //tip.setText("tip:"+enteredBill*0.18);
 
 
         btn.setOnClickListener(new View.OnClickListener() {

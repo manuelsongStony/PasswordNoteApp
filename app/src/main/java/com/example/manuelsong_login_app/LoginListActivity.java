@@ -26,12 +26,6 @@ public class LoginListActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-//            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
-//            int position = viewHolder.getAdapterPosition();
-//            int loginId = logins.get(position).getLoginID();
-//            Intent intent = new Intent(LoginListActivity.this, MainActivity.class);
-//            intent.putExtra("loginId", loginId);
-//            startActivity(intent);
 
             PasswordShowDialog dialog=new PasswordShowDialog(LoginListActivity.this,view,logins);
             dialog.show(getSupportFragmentManager(),"PasswordShowDialog");

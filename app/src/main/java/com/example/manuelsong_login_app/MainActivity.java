@@ -115,21 +115,7 @@ public class MainActivity extends AppCompatActivity {//implements PasswordShowDi
         }
 
     }
-/*
-    private void initChangeDateButton() {
-        Button changeDate = findViewById(R.id.buttonBirthday);
-        changeDate.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                FragmentManager fm = getSupportFragmentManager();
-                PasswordShowDialog datePickerDialog = new PasswordShowDialog();
-                datePickerDialog.show(fm, "DatePick");
-            }
-        });
-    }
-
- */
 
     private void initTextChangedEvents(){
         final EditText etWebsite = findViewById(R.id.websiteEdit);
@@ -279,20 +265,10 @@ public class MainActivity extends AppCompatActivity {//implements PasswordShowDi
         editPassword.setText(currentLogin.getPassword());
         editImportance.setText(currentLogin.getImportance());
 
-        //currentLogin.setFrequency(Integer.toString((parseInt(currentLogin.getFrequency())+1)));
-        //ds.updateLogin(currentLogin);
 
 
         frequency.setText(currentLogin.getFrequency());
     }
 
-/*
-    @Override
-    public void didFinishDatePickerDialog(Calendar selectedTime) {
-        TextView birthDay = findViewById(R.id.textBirthday);
-        birthDay.setText(DateFormat.format("MM/dd/yyyy", selectedTime));
-        currentLogin.setBirthday(selectedTime);
-    }
 
- */
 }
